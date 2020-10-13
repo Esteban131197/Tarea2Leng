@@ -43,11 +43,7 @@ Recuerde: Que por disposiciones del Ministerio de Salud solo se permiten Burbuja
 
 fallas('Nuestra sugerencia es:
 Capitan Alitas:
- Ubicado en camino a Volcan Irazu.
-Tratamiento para detener el sangrado. Si la pérdida de sangre está causando
-anemia por deficiencia de hierro, el tratamiento dependerá de la causa del sangrado.
-Por ejemplo, si usted tiene una úlcera sangrante,
-el médico puede recetarle antibióticos y otras medicinas para tratar la úlcera.
+ Ubicado en camino a Volcan Irazu.Tratamiento para detener el sangrado.
 Recuerde: Que por disposiciones del Ministerio de Salud solo se permiten Burbujas.
 '):-capitanalitas,!.
 
@@ -64,55 +60,49 @@ Recuerde: Que por disposiciones del Ministerio de Salud solo se permiten Burbuja
 '):-gelato,!.
 
 
-fallas('sin resultados, usted no dio la informacion necesaria o suficiente
-ERROR p560c4!').
+fallas('No hay restaurantes disponibles con las opciones elegidas!').
 
-% preguntas para dirigir a la enfermedad adecuada con su respectivo
-% identificador de enfermedad
+% preguntas para elegir el restaurante adecuado con su respectivo
+% identificador del restaurante
 
 villaitalia:- svillaitalia,
 	pregunta('En Cartago?'),
-	pregunta('A la leña?'),
-	pregunta('Para comer en el lugar?');
-	pregunta('Sabores Italianos?').
+	pregunta('A la lena?'),
+	pregunta('Para comer en el lugar?').
 
 pizzahut:- spizzahut,
         pregunta('En Cartago?'),
 	pregunta('En menos de 15 minutos?'),
-	pregunta('Para pedir express?');
-	pregunta('Para comer en el lugar?').
+	pregunta('Para pedir express?').
 
 rostipollos:- srostipollos,
-	pregunta('Pollo a la leña?'),
-        pregunta('En Cartago?');
-	pregunta('Para comer en el lugar?');
-	pregunta('Combos familiares?').
+	pregunta('En Cartago?'),
+	pregunta('Pollo a la lena?'),
+	pregunta('Para comer en el lugar?').
 
 capitanalitas:- scapitanalitas,
-	pregunta('alitas?'),
-	pregunta('En En Paseo Metropoli?');
-	pregunta('Para comer en el lugar?');
+	pregunta('En Cartago?'),
+	pregunta('Alitas?'),
 	pregunta('Para pedir express? ').
 
 pops:- spops,
+	pregunta('En Cartago?'),
 	pregunta('Helado de lactosa?'),
-	pregunta('En Cartago centro?'),
-	pregunta('En menos de 15 minutos?'),
 	pregunta('Para pedir express?').
 
 gelato:- sgelato,
+	pregunta('En Cartago?'),
 	pregunta('Helado de yogurt?'),
-	pregunta('En Paseo Metropoli?'),
 	pregunta('Para comer en el lugar?').
 
 %identificador de falla que dirige a las preguntas correspondientes
 
-svillaitalia:-pregunta('Quieres comer pizza?'),!.
-spizzahut:-pregunta('Quieres comer pizza?'),!.
-srostipollos:-pregunta('Quieres comer pollo?'),!.
-scapitanalitas:-pregunta('Quieres comer pollo?'),!.
-spops:-pregunta('Quieres comer algun postre?'),!.
-sgelato:-pregunta('Quieres comer algun postre?'),!.
+svillaitalia:-pregunta('Quieres comer pizza?').
+srostipollos:-pregunta('Quieres comer pollo?').
+spizzahut:-pregunta('Quieres comer pizza?').
+scapitanalitas:-pregunta('Quieres comer pollo?').
+spops:-pregunta('Quieres comer algun postre?').
+sgelato:-pregunta('Quieres comer algun postre?').
 
 % proceso del diagnostico basado en preguntas de si y no, cuando el
 % usuario dice si, se pasa a la siguiente pregunta del mismo ramo, si
@@ -126,7 +116,7 @@ preguntar(Problema):- new(Di,dialog('Conversacion')),
      new(B1,button(si,and(message(Di,return,si)))),
      new(B2,button(no,and(message(Di,return,no)))),
 
-         send(Di,append(L2)),
+     send(Di,append(L2)),
 	 send(Di,append(La)),
 	 send(Di,append(B1)),
 	 send(Di,append(B2)),
