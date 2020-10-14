@@ -14,19 +14,19 @@ restaurante("Subway").%thanos
 % string para solucionar la ambig�edad pero se debe recibir el string
 % completo de la comunicaci�n con el usuario
 
-clave(tos).
-clave(fiebre).
-clave(cansancio).
-clave(diarrea).
-clave(vomito).
-clave(dolor).
-clave(perdida).
-clave(flema).
-clave(picazon).
-clave(ampollas).
-clave(muerte).
-clave(polvo).
-clave(inexistencia).
+sintoma(tos).
+sintoma(fiebre).
+sintoma(cansancio).
+sintoma(diarrea).
+sintoma(vomito).
+sintoma(dolor).
+sintoma(perdida).
+sintoma(flema).
+sintoma(picazon).
+sintoma(ampollas).
+sintoma(muerte).
+sintoma(polvo).
+sintoma(inexistencia).
 
 
 % Lista de Causas para cada enfermedad, El primer string del hecho es la

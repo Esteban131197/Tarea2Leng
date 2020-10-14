@@ -5,14 +5,14 @@ restauranTEC():- %se inicializan las variables de sintomas y enfermedad del paci
     b_setval(clave1,0),
     b_setval(clave2,0),
     b_setval(clave3,0),
-    b_setval(enfer,0),
+    b_setval(comida,0),
     conversacion().
 
 restauranTEC(X,Y):-
     b_setval(clave1,0),
     b_setval(clave2,0),
     b_setval(clave3,0),
-    b_setval(enfer,0),
+    b_setval(comida,0),
     nb_setval(restaurante, 0),
     conversacion(X,Y).
 
@@ -50,13 +50,13 @@ asignarVar(Clave):- b_getval(clave2,C2), C2 == 0, b_setval(clave2, Clave).
 asignarVar(Clave):- b_getval(clave3,C3), C3 == 0, b_setval(clave3, Clave).
 
 suficientesClaves():-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
-    sintomas_de(C1,C2,C3,R), b_setval(enfer,R),nb_setval(restaurante, R),
+    claves_de(C1,C2,C3,R), b_setval(comida,R),nb_setval(restaurante, R),
 
     write("Lamento decirle esto, pero usted padece de "),write(R),nl.
 suficientesClaves().
 
 suficientesClaves(_):-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
-sintomas_de(C1,C2,C3,R), b_setval(enfer,R),nb_setval(restaurante, R).
+claves_de(C1,C2,C3,R), b_setval(comida,R),nb_setval(restaurante, R).
 suficientesClaves(_).
 
 % revisa las keywords y da una respuesta dependiendo del tipo de keyword
@@ -64,17 +64,17 @@ keyword(Word,Resto):- sintoma(Word),%el paciente est� dando mencionando un sin
      asignarVar(Word), suficientesClaves(),searchKeywords(Resto).
 
 keyword(Word,_):- caus(Word), %pregunta por las causas de su enfermedad
-    b_getval(enfer,R),
+    b_getval(comida,R),
     (   R \= 0 -> causa_enfermedad(R,C), write(C), nl;
         write("Como quiere que le de la causa de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
 
 keyword(Word,_):- trat(Word), %pregunta por el tratamiento de su enfermedad
-    b_getval(enfer,R),
+    b_getval(comida,R),
     (   R \= 0 -> curar_enfermedad(R,T),write("Usted debe "), write(T), nl;
         write("Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
 
 keyword(Word,_):- prev(Word), %pregunta como prevenir la enfermedad
-    b_getval(enfer,R),
+    b_getval(comida,R),
     (   R \= 0 -> write("Para prevenir esa enfermedad, se recomienda "),nl,
         lista_prevenciones(R);
         write("Como quiere que le diga como prevenir de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
@@ -84,16 +84,16 @@ keyword(Word,Resto,_):- sintoma(Word),%el paciente est� dando mencionando un s
 asignarVar(Word), suficientesClaves(_),searchKeywords(Resto).
 
 keyword(Word,_,Salida):- caus(Word), %pregunta por las causas de su enfermedad
-   b_getval(enfer,R),
+   b_getval(comida,R),
    (   R \= 0 -> causa_enfermedad(R,C),atom_concat('La causa comun de esa enfermedad es ', C, Salida);
         atom_concat('Como quiere que le de la causa de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?\n','',Salida)).
 
 keyword(Word,_,Salida):- trat(Word), %pregunta por el tratamiento de su enfermedad
-   b_getval(enfer,R),
+   b_getval(comida,R),
    (   R \= 0 -> curar_enfermedad(R,T),atom_concat('"Usted debe ', T, Salida);
         atom_concat('Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
 keyword(Word,_, Salida):- prev(Word), %pregunta como prevenir la enfermedad
-   b_getval(enfer,R),
+   b_getval(comida,R),
    (   R \= 0 -> lista_prevenciones(R),atom_concat('Para prevenir esa enfermedad, se recomienda','',Salida);
        atom_concat('Como quiere que le diga como prevenir de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
 
@@ -152,7 +152,7 @@ sintoma_de(S,R):-sintoma(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y
 % sintomas son ingresados de la comunicaci�n con el usuario y en la
 % variable E se almacena la enfermedad correspondiente
 
-sintomas_de(C1,C2,C3,R):-sintoma_de(C1,R),sintoma_de(C2,R),sintoma_de(C3,R).
+claves_de(C1,C2,C3,R):-sintoma_de(C1,R),sintoma_de(C2,R),sintoma_de(C3,R).
 
 
 % Regla para relacionar una enfermedad con una causa, la enfermedad se
