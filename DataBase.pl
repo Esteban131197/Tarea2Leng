@@ -14,19 +14,19 @@ restaurante("Subway").%thanos
 % string para solucionar la ambig�edad pero se debe recibir el string
 % completo de la comunicaci�n con el usuario
 
-clave(pizza).
-clave(pasta).
-clave(cansancio).
-clave(pollo).
-clave(alitas).
-clave(cocacola).
-clave(perdida).
-clave(flema).
-clave(picazon).
-clave(ampollas).
-clave(muerte).
-clave(polvo).
-clave(inexistencia).
+sintoma(tos).
+sintoma(fiebre).
+sintoma(cansancio).
+sintoma(diarrea).
+sintoma(vomito).
+sintoma(dolor).
+sintoma(perdida).
+sintoma(flema).
+sintoma(picazon).
+sintoma(ampollas).
+sintoma(muerte).
+sintoma(polvo).
+sintoma(inexistencia).
 
 
 % Lista de Causas para cada enfermedad, El primer string del hecho es la
@@ -101,7 +101,7 @@ tratamiento_enfermedad("ninguno","Subway").
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
 
-enfermedad_area("PizzaHut",italiano).
+enfermedad_area("PizzaHut",respiracion).
 enfermedad_area("PizzaHut",cuerpo).
 enfermedad_area("PizzaHut",temperatura).
 enfermedad_area("Rostipollos",estomago).
@@ -125,21 +125,21 @@ enfermedad_area("Subway",piernas).
 % sintomas que atacan varias �reas debido a la ambig�edad de los mismos
 % (son el caso de dolor y perdida).
 
-clave_area(pizza,italiano).
-clave_area(fiebre,temperatura).
-clave_area(cansancio,cuerpo).
-clave_area(diarrea,estomago).
-clave_area(vomito,estomago).
-clave_area(dolor,estomago).
-clave_area(dolor,cuerpo).
-clave_area(perdida,peso).
-clave_area(perdida,estomago).
-clave_area(flema,pecho).
-clave_area(picazon,piel).
-clave_area(ampollas,piel).
-clave_area(muerte, cabeza).
-clave_area(polvo, torso).
-clave_area(inexistencia, piernas).
+sintoma_area(tos,respiracion).
+sintoma_area(fiebre,temperatura).
+sintoma_area(cansancio,cuerpo).
+sintoma_area(diarrea,estomago).
+sintoma_area(vomito,estomago).
+sintoma_area(dolor,estomago).
+sintoma_area(dolor,cuerpo).
+sintoma_area(perdida,peso).
+sintoma_area(perdida,estomago).
+sintoma_area(flema,pecho).
+sintoma_area(picazon,piel).
+sintoma_area(ampollas,piel).
+sintoma_area(muerte, cabeza).
+sintoma_area(polvo, torso).
+sintoma_area(inexistencia, piernas).
 
 % ------------------------------------------------------------------------
 % Palabras para el BNF
