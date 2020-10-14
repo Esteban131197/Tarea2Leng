@@ -49,19 +49,19 @@ asignarVar(Clave):- b_getval(clave1,C1), C1 == 0, b_setval(clave1, Clave).
 asignarVar(Clave):- b_getval(clave2,C2), C2 == 0, b_setval(clave2, Clave).
 asignarVar(Clave):- b_getval(clave3,C3), C3 == 0, b_setval(clave3, Clave).
 
-suficientesSintomas():-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
+suficientesClaves():-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
     sintomas_de(C1,C2,C3,R), b_setval(enfer,R),nb_setval(restaurante, R),
 
     write("Lamento decirle esto, pero usted padece de "),write(R),nl.
-suficientesSintomas().
+suficientesClaves().
 
-suficientesSintomas(_):-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
+suficientesClaves(_):-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
 sintomas_de(C1,C2,C3,R), b_setval(enfer,R),nb_setval(restaurante, R).
-suficientesSintomas(_).
+suficientesClaves(_).
 
 % revisa las keywords y da una respuesta dependiendo del tipo de keyword
 keyword(Word,Resto):- sintoma(Word),%el paciente est� dando mencionando un sintoma
-     asignarVar(Word), suficientesSintomas(),searchKeywords(Resto).
+     asignarVar(Word), suficientesClaves(),searchKeywords(Resto).
 
 keyword(Word,_):- caus(Word), %pregunta por las causas de su enfermedad
     b_getval(enfer,R),
@@ -81,7 +81,7 @@ keyword(Word,_):- prev(Word), %pregunta como prevenir la enfermedad
 
 %GUI
 keyword(Word,Resto,_):- sintoma(Word),%el paciente est� dando mencionando un sintoma
-asignarVar(Word), suficientesSintomas(_),searchKeywords(Resto).
+asignarVar(Word), suficientesClaves(_),searchKeywords(Resto).
 
 keyword(Word,_,Salida):- caus(Word), %pregunta por las causas de su enfermedad
    b_getval(enfer,R),
