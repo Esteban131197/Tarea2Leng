@@ -2,16 +2,16 @@
 
 restauranTEC():- %se inicializan las variables de sintomas y enfermedad del paciente en 0.
     write("Hola.\n"),
-    b_setval(sint1,0),
-    b_setval(sint2,0),
-    b_setval(sint3,0),
+    b_setval(clave1,0),
+    b_setval(clave2,0),
+    b_setval(clave3,0),
     b_setval(enfer,0),
     conversacion().
 
 restauranTEC(X,Y):-
-    b_setval(sint1,0),
-    b_setval(sint2,0),
-    b_setval(sint3,0),
+    b_setval(clave1,0),
+    b_setval(clave2,0),
+    b_setval(clave3,0),
     b_setval(enfer,0),
     nb_setval(restaurante, 0),
     conversacion(X,Y).
@@ -45,23 +45,23 @@ revisar(List,Y):- (not(oracion(List,[]))),atom_concat('Lo siento, no entendi, po
 
 % -------------------------------------------------------------------------
 % Asigna un sintoma nuevo a las variables nulas.
-asignarVar(Sintoma):- b_getval(sint1,S1), S1 == 0, b_setval(sint1, Sintoma).
-asignarVar(Sintoma):- b_getval(sint2,S2), S2 == 0, b_setval(sint2, Sintoma).
-asignarVar(Sintoma):- b_getval(sint3,S3), S3 == 0, b_setval(sint3, Sintoma).
+asignarVar(Sintoma):- b_getval(clave1,C1), C1 == 0, b_setval(clave1, Sintoma).
+asignarVar(Sintoma):- b_getval(clave2,C2), C2 == 0, b_setval(clave2, Sintoma).
+asignarVar(Sintoma):- b_getval(clave3,C3), C3 == 0, b_setval(clave3, Sintoma).
 
-suficientesSintomas():-b_getval(sint1,S1),b_getval(sint2,S2),b_getval(sint3,S3),
-    sintomas_de(S1,S2,S3,R), b_setval(enfer,R),nb_setval(restaurante, R),
+suficientesClaves():-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
+    claves_de(C1,C2,C3,R), b_setval(enfer,R),nb_setval(restaurante, R),
 
     write("Lamento decirle esto, pero usted padece de "),write(R),nl.
-suficientesSintomas().
+suficientesClaves().
 
-suficientesSintomas(_):-b_getval(sint1,S1),b_getval(sint2,S2),b_getval(sint3,S3),
-sintomas_de(S1,S2,S3,R), b_setval(enfer,R),nb_setval(restaurante, R).
-suficientesSintomas(_).
+suficientesClaves(_):-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
+claves_de(C1,C2,C3,R), b_setval(enfer,R),nb_setval(restaurante, R).
+suficientesClaves(_).
 
 % revisa las keywords y da una respuesta dependiendo del tipo de keyword
 keyword(Word,Resto):- sintoma(Word),%el paciente est� dando mencionando un sintoma
-     asignarVar(Word), suficientesSintomas(),searchKeywords(Resto).
+     asignarVar(Word), suficientesClaves(),searchKeywords(Resto).
 
 keyword(Word,_):- caus(Word), %pregunta por las causas de su enfermedad
     b_getval(enfer,R),
@@ -81,7 +81,7 @@ keyword(Word,_):- prev(Word), %pregunta como prevenir la enfermedad
 
 %GUI
 keyword(Word,Resto,_):- sintoma(Word),%el paciente est� dando mencionando un sintoma
-asignarVar(Word), suficientesSintomas(_),searchKeywords(Resto).
+asignarVar(Word), suficientesClaves(_),searchKeywords(Resto).
 
 keyword(Word,_,Salida):- caus(Word), %pregunta por las causas de su enfermedad
    b_getval(enfer,R),
@@ -145,14 +145,14 @@ sintagma_verbal(A,B):- verbo(A,B).
 % que el rea de afectacin del sintoma concuerde con una de las �reas
 % de afectacin de la enfermedad
 
-sintoma_de(S,R):-sintoma(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y).
+clave_de(CL,R):-sit(CL),restaurante(R),clave_area(CL,Y),enfermedad_area(R,Y).
 
 
 % Regla que me relaciona tres sintomas con una enfermedad, los tres
 % sintomas son ingresados de la comunicaci�n con el usuario y en la
 % variable E se almacena la enfermedad correspondiente
 
-sintomas_de(S1,S2,S3,R):-sintoma_de(S1,R),sintoma_de(S2,R),sintoma_de(S3,R).
+claves_de(C1,C2,C3,R):-clave_de(C1,R),clave_de(C2,R),clave_de(C3,R).
 
 
 % Regla para relacionar una enfermedad con una causa, la enfermedad se
@@ -176,8 +176,8 @@ lista_prevenciones(R):-findall(Prevencion,prevenir_enfermedad(R,Prevencion),L),
 
 concatenarLista(L):- concatenarLista(L," ",_).
 concatenarLista([],_,SF):-write(SF).
-concatenarLista([S1|Resto],SI,_):- string_concat(S1,", ",S),
-    string_concat(SI,S,SFinal),
+concatenarLista([C1|Resto],SI,_):- string_concat(C1,", ",CL),
+    string_concat(SI,CL,SFinal),
     concatenarLista(Resto,SFinal,SFinal).
 
 
@@ -188,6 +188,12 @@ concatenarLista([S1|Resto],SI,_):- string_concat(S1,", ",S),
 curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
 %base de datos
+
+
+
+
+
+
 
 
 
