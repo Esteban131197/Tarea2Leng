@@ -14,12 +14,12 @@ restaurante("Subway").%thanos
 % string para solucionar la ambig�edad pero se debe recibir el string
 % completo de la comunicaci�n con el usuario
 
-clave(ok).%tos
-clave(fiebre).%fiebre
+clave(pizza).%tos
+clave(pasta).%fiebre
 clave(cansancio).%
 clave(diarrea).%diarrea
 clave(vomito).%vomito
-clave(dolor).%dolor
+clave(cocacola).%dolor
 clave(perdida).%perdida
 clave(flema).
 clave(picazon).
@@ -125,13 +125,13 @@ enfermedad_area("Subway",piernas).
 % sintomas que atacan varias �reas debido a la ambig�edad de los mismos
 % (son el caso de dolor y perdida).
 
-sintoma_area(ok,respiracion).
-sintoma_area(fiebre,temperatura).
+sintoma_area(pizza,respiracion).
+sintoma_area(pasta,temperatura).
 sintoma_area(cansancio,cuerpo).
 sintoma_area(diarrea,estomago).
 sintoma_area(vomito,estomago).
-sintoma_area(dolor,estomago).
-sintoma_area(dolor,cuerpo).
+sintoma_area(cocacola,estomago).
+sintoma_area(cocacola,cuerpo).
 sintoma_area(perdida,peso).
 sintoma_area(perdida,estomago).
 sintoma_area(flema,pecho).
@@ -148,11 +148,11 @@ nombre([cancer|A],A).
 nombre([yo|A],A).
 nombre([doctor|A],A).
 nombre([drlog|A],A).%%%OJO CON ESTA LINEA
-nombre([fiebre|A],A).
+nombre([pasta|A],A).
 nombre([cansancio|A],A).
-nombre([ok|A],A).
+nombre([pizza|A],A).
 nombre([diarrea|A],A).
-nombre([dolor|A],A).
+nombre([cocacola|A],A).
 nombre([vomito|A],A).
 nombre([flema|A],A).
 nombre([perdida|A],A).
@@ -172,8 +172,8 @@ nombre([tratamiento|A],A).
 nombre([prevencion|A],A).
 nombre([cura|A],A).
 
-nombre([ok|A],A).
-nombre([fiebre|A],A).
+nombre([pizza|A],A).
+nombre([pasta|A],A).
 nombre([cansancio|A],A).
 nombre([enfermedad|A],A).
 
