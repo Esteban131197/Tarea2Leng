@@ -34,8 +34,10 @@ reservacion("Rostipollos","Lamentablemente no hay espacios disponibles").
 reservacion("Italianisimo","Las reservaciones solo se permiten con dos dias de anticipacion").
 reservacion("McBurguesa","No necesita reservacion para ingresar al local").
 
-% Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
-% misma enfermedad puede atacar diferentes �reas del cuerpo
+
+% Hechos que me indican los restaurantes disponibles, mismo alimento
+% puede estar en mismo restaurante.
+
 
 res_area("BellaItalia",italiano).
 res_area("BellaItalia",italiano2).
@@ -94,7 +96,7 @@ direc(direccion).
 
 
 
-%fin
+%finn
 
 
 
