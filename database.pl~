@@ -14,7 +14,7 @@ restaurante("Subway").%thanos
 % string para solucionar la ambig�edad pero se debe recibir el string
 % completo de la comunicaci�n con el usuario
 
-clave(pizza).%tos
+clave(ok).%tos
 clave(fiebre).%fiebre
 clave(cansancio).%
 clave(diarrea).%diarrea
