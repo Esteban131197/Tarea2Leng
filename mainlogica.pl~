@@ -52,7 +52,7 @@ asignarVar(Clave):- b_getval(clave3,C3), C3 == 0, b_setval(clave3, Clave).
 suficientesClaves():-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),
     claves_de(C1,C2,C3,R), b_setval(comida,R),nb_setval(restaurante, R),
 
-    write("Segun lo leido la mejor recomendacion es"),write(R),nl.
+    write("Segun lo leido la mejor recomendacion es "),write(R),nl.
 suficientesClaves().
 
 suficientesClaves(_):-b_getval(clave1,C1),b_getval(clave2,C2),b_getval(clave3,C3),

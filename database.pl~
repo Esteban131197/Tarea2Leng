@@ -17,8 +17,8 @@ restaurante("Subway").%thanos
 clave(pizza).%tos
 clave(pasta).%fiebre
 clave(cansancio).%
-clave(diarrea).%diarrea
-clave(vomito).%vomito
+clave(pollo).%diarrea
+clave(alitas).%vomito
 clave(cocacola).%dolor
 clave(perdida).%perdida
 clave(flema).
@@ -34,12 +34,12 @@ clave(inexistencia).
 % string indica a cu�l enfermedad pertenece dicha causa.
 
 
-causa("La gripe es causada por el virus de la influenza","PizzaHut").
-causa("El virus que causa la varicela es el virus varicela z�ster","Tukasa").
-causa("El virus estomacal es causado por el norovirus y el rotavirus ","Rostipollos").
-causa("Los mismos virus que causan los resfriados y la gripe son la causa m�s frecuente de la bronquitis","TacoBell").
-causa("Por lo general el cancer lo provocan mutaciones geneticas","Mcdonals").
-causa("gemas","Subway").
+direccion("La gripe es causada por el virus de la influenza","PizzaHut").
+direccion("El virus que causa la varicela es el virus varicela z�ster","Tukasa").
+direccion("El virus estomacal es causado por el norovirus y el rotavirus ","Rostipollos").
+direccion("Los mismos virus que causan los resfriados y la gripe son la causa m�s frecuente de la bronquitis","TacoBell").
+direccion("Por lo general el cancer lo provocan mutaciones geneticas","Mcdonals").
+direccion("gemas","Subway").
 
 
 
@@ -128,8 +128,8 @@ enfermedad_area("Subway",piernas).
 sintoma_area(pizza,respiracion).
 sintoma_area(pasta,temperatura).
 sintoma_area(cansancio,cuerpo).
-sintoma_area(diarrea,estomago).
-sintoma_area(vomito,estomago).
+sintoma_area(pollo,estomago).
+sintoma_area(alitas,estomago).
 sintoma_area(cocacola,estomago).
 sintoma_area(cocacola,cuerpo).
 sintoma_area(perdida,peso).
@@ -151,9 +151,9 @@ nombre([drlog|A],A).%%%OJO CON ESTA LINEA
 nombre([pasta|A],A).
 nombre([cansancio|A],A).
 nombre([pizza|A],A).
-nombre([diarrea|A],A).
+nombre([pollo|A],A).
 nombre([cocacola|A],A).
-nombre([vomito|A],A).
+nombre([alitas|A],A).
 nombre([flema|A],A).
 nombre([perdida|A],A).
 nombre([ampollas|A],A).
@@ -219,8 +219,8 @@ trat(cura).
 trat(tomar).
 trat(medicina).
 
-caus(causa).
-caus(provoca).
+direc(direccion).
+direc(provoca).
 
 
 
