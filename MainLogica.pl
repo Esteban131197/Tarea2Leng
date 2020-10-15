@@ -109,32 +109,24 @@ sintagma_verbal(A,B):- verbo(A,B).
 % Reglas principales para relacionar los hechos de la base de datos y
 % enviar la informacin correspondiente al usuario
 % Regla que me relaciona una sola comida con el restaurante, la variable
-% S se refiere a la comida y la variable E se refiere a enfermedad, la
-% regla primero verifica que efectivamente se traten de sintomas y
-% enfermedades de la base de datos, y luego hace la relaci�n verificando
-% que el rea de afectacin del sintoma concuerde con una de las �reas
-% de afectacin de la enfermedad
+% S se refiere a la comida y la variable R se refiere al restaurante, la
+% regla primero verifica que efectivamente se pregunten por las comidas
+% y restaurantes de la base de datos, y luego hace la relacion
+% verificando que la comida concuerde con un restaurante.
 
 clave_de(S,R):-clave(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y).
 
-% Regla que me relaciona tres sintomas con una enfermedad, los tres
-% sintomas son ingresados de la comunicaci�n con el usuario y en la
-% variable E se almacena la enfermedad correspondiente
+% Regla que me relaciona tres comidas con un restaurante, las tres
+% comidas son ingresados por el usuario y en la
+% variable R se almacena el restaurante correspondiente.
 
 claves_de(C1,C2,C3,R):-clave_de(C1,R),clave_de(C2,R),clave_de(C3,R).
 
-% Regla para relacionar una enfermedad con una causa, la enfermedad se
-% recibe como par�metro y la regla instancia en la variable C la causa
-% correspondiente
+% Regla para relacionar un restaurante, el restaurante se
+% recibe como parametro.
 
 direccion_rest(R,C):-restaurante(R),direccion(C,R).
 
-% Reglas para obtener las formas de prevenci�n de una enfermedad, la
-% regla de prevenir_enfermedad liga una enfermedad con una forma de
-% prevenci�n (si existe tratamiento previo tambi�n se incluye) de
-% acuerdo con el �rea de afectaci�n. La regla lista_prevenciones recibe
-% una enfermedad como par�metro de entrada e instancia en la variable L
-% la lista con todas las posibles prevenciones para dicha enfermedad.
 
 concatenarLista(L):- concatenarLista(L," ",_).
 concatenarLista([],_,SF):-write(SF).
@@ -142,9 +134,9 @@ concatenarLista([C1|Resto],SI,_):- string_concat(C1,", ",S),
     string_concat(SI,S,SFinal),
     concatenarLista(Resto,SFinal,SFinal).
 
-% Regla para relacionar el tratamiento con una enfermedad, se recibe
-% como par�metro la enfermedad y devuelve en la variable T, el
-% tratamiento respectivo para dicha enfermedad.
+% Regla para relacionar la reservacion con el restaurante, se recibe
+% como parametro el restaurante y devuelve en la variable T, la
+% reservacion respectiva para dicho restaurante.
 
 curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
