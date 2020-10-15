@@ -45,16 +45,16 @@ direccion("Subway","300 metros oeste de la entrada principal del TEC").
 
 %Lista de prevenciones
 
-prevencion("Lavarse las manos").
-prevencion("Cubrise la boca al toser").
-prevencion("Usar desinfectante para manos").
-prevencion("Desinfectar superficies y objetos del hogar").
-prevencion("Hacer ejercicio con frecuencia").
-prevencion("Tener buena alimentaci�n").
-prevencion("Evitar los vicios como alcohol o cigarros").
-prevencion("ninguna").
-prevencion("matar a thanos").
-prevencion("no existir").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
+domicilio("aplicaciones como uber y glovo").
 
 
 % Hechos que me asocian una prevenci�n, con el �rea del cuerpo a la
@@ -205,10 +205,11 @@ saludo(buenos).
 despedida(adios).
 despedida(luego).
 
-prev(prevenirla).
-prev(prevenirlo).
-prev(prevenir).
-prev(prevencion).
+express(prevenirla).
+express(prevenirlo).
+express(prevenir).
+express(prevencion).
+express(domicilio).
 
 trat(tratamiento).
 trat(tratarlo).

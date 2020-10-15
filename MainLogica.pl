@@ -75,11 +75,11 @@ keyword(Word,_):- trat(Word), %pregunta por el tratamiento de su enfermedad
     (   R \= 0 -> curar_enfermedad(R,T),write("Usted debe "), write(T), nl;
         write("Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
 
-keyword(Word,_):- prev(Word), %pregunta como prevenir la enfermedad
+keyword(Word,_):- express(Word), %pregunta como prevenir la enfermedad
     b_getval(comida,R),
-    (   R \= 0 -> write("Para prevenir esa enfermedad, se recomienda "),nl,
-        lista_prevenciones(R);
-        write("Como quiere que le diga como prevenir de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
+    (   R \= 0 -> write("Para pedir esta recomendacion a domicilio puede utilizar  "),nl,
+        lista_domicilios(R);
+        write("No puedo sugeriri servicios a domicilio sin datos"), nl).
 
 %GUI
 keyword(Word,Resto,_):- clave(Word),%el paciente est� dando mencionando un sintoma
@@ -87,17 +87,18 @@ asignarVar(Word), suficientesClaves(_),searchKeywords(Resto).
 
 keyword(Word,_,Salida):- direc(Word), %pregunta por las causas de su enfermedad
    b_getval(comida,R),
-   (   R \= 0 -> direccion_rest(R,C),atom_concat('La causa comun de esa enfermedad es ', C, Salida);
-        atom_concat('Como quiere que le de la causa de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?\n','',Salida)).
+   (   R \= 0 -> direccion_rest(R,C),atom_concat('La direccion del restaurante recomendado es ', C, Salida);
+        atom_concat('No puedo entregar direcciones sin datos previos\n','',Salida)).
 
 keyword(Word,_,Salida):- trat(Word), %pregunta por el tratamiento de su enfermedad
    b_getval(comida,R),
    (   R \= 0 -> curar_enfermedad(R,T),atom_concat('"Usted debe ', T, Salida);
         atom_concat('Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
-keyword(Word,_, Salida):- prev(Word), %pregunta como prevenir la enfermedad
+
+keyword(Word,_, Salida):- express(Word), %pregunta como prevenir la enfermedad
    b_getval(comida,R),
-   (   R \= 0 -> lista_prevenciones(R),atom_concat('Para prevenir esa enfermedad, se recomienda','',Salida);
-       atom_concat('Como quiere que le diga como prevenir de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
+   (   R \= 0 -> lista_domicilios(R),atom_concat('Para pedir esta recomendacion a domicilio puede utilizar','',Salida);
+       atom_concat('No puedo sugerir servicios a domicilio sin datos','',Salida)).
 
 keywordExtra(Word):- saludo(Word), write("Hola, en que lo puedo ayudar hoy?"), nl.
 keywordExtra(Word):- despedida(Word), write("Adios, espero que est� bien."), nl,
@@ -173,9 +174,9 @@ direccion_rest(R,C):-restaurante(R),direccion(C,R).
 % la lista con todas las posibles prevenciones para dicha enfermedad.
 
 prevenir_enfermedad(R,P):-restaurante(R),tratamiento_previo(R,P).
-prevenir_enfermedad(R,P):-restaurante(R),prevencion(P),enfermedad_area(R,X),prevencion_area(P,X).
+prevenir_enfermedad(R,P):-restaurante(R),domicilio(P),enfermedad_area(R,X),prevencion_area(P,X).
 
-lista_prevenciones(R):-findall(Prevencion,prevenir_enfermedad(R,Prevencion),L),
+lista_domicilios(R):-findall(Express,prevenir_enfermedad(R,Express),L),
     concatenarLista(L).
 
 concatenarLista(L):- concatenarLista(L," ",_).
@@ -201,3 +202,11 @@ curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+>>>>>>> Stashed changes
