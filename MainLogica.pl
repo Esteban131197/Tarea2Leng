@@ -64,7 +64,7 @@ keyword(Word,_):- direc(Word), %entrega las comidas de su restaurante
 
 keyword(Word,_):- trat(Word), %entrega la reservacion de su restaurante
     b_getval(comida,R),
-    (   R \= 0 -> curar_enfermedad(R,T),write("Usted debe "), write(T), nl;
+    (   R \= 0 -> crear_reserva(R,T),write("Usted debe "), write(T), nl;
         write("No tengo los datos necesarios para reservar en el restaurante"), nl).
 
 %GUI
@@ -78,7 +78,7 @@ keyword(Word,_,Salida):- direc(Word), %pregunta por el restaurante
 
 keyword(Word,_,Salida):- trat(Word), %pregunta por la reservacion del restaurante
    b_getval(comida,R),
-   (   R \= 0 -> curar_enfermedad(R,T),atom_concat('"Usted debe ', T, Salida);
+   (   R \= 0 -> crear_reserva(R,T),atom_concat('"Usted debe ', T, Salida);
         atom_concat('No tengo los datos necesarios para reservar en el restauramte','',Salida)).
 
 %busqueda en la lista de palabras
