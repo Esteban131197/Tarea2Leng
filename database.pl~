@@ -28,11 +28,9 @@ clave(muerte).
 clave(polvo).
 clave(inexistencia).
 
-
 % Lista de Causas para cada enfermedad, El primer string del hecho es la
 % causa (la cu�l es propia y �nica para cada enfermedad), el segundo
 % string indica a cu�l enfermedad pertenece dicha causa.
-
 
 direccion("PizzaHut"," esta ubicada 25 metros este y de 25 norte de la municipalidad de Cartago").
 direccion("Tukasa","diagonal a aros y llantas en el Molino, Cartago").
@@ -40,9 +38,6 @@ direccion("Rostipollos","de la munipalidad de Cartago 225 metros al este, local 
 direccion("TacoBell","Se ubica a 25 metros este y 20 norte de la municipalidad de Cartago").
 direccion("Mcdonals","Carretera hacia paraiso, contiguo a Walmart").
 direccion("Subway","300 metros oeste de la entrada principal del TEC").
-
-
-
 
 % Hechos que me indican si una enfermedad tiene tratamiento previo, para
 % incluirlos tambi�n en la lista de prevenciones de cada enfermedad. El
@@ -54,12 +49,10 @@ tratamiento_previo("TacoBell","Ponerse la vacuna para la gripe todos los a�os"
 tratamiento_previo("Tukasa","Vacunarse contra el virus que produce la varicela").
 tratamiento_previo("Subway","matar a thanos").
 
-
 % Lista de tratamientos posteriores a la enfermedad, el hecho los asocia
 % directamente con la enfermedad (segundo par�metro) ya que los
 % tratamientos son �nicos para cada tipo de enfermedad de la base de
 % datos
-
 
 tratamiento_enfermedad("Tomar antigripal por una semana y tomar l�quidos en abundancia","PizzaHut").
 tratamiento_enfermedad("Ingerir alimentos blandos y mantenerse hidratado","Rostipollos").
@@ -67,8 +60,6 @@ tratamiento_enfermedad("Consumir medicamentos para la tos y comprar un inhibidor
 tratamiento_enfermedad("Cubrir las ampollas para la piel y utilizar cremas para reducir la picaz�n","Tukasa").
 tratamiento_enfermedad("Someterse a una quimioterapia","Mcdonals").
 tratamiento_enfermedad("ninguno","Subway").
-
-
 
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
@@ -90,7 +81,6 @@ enfermedad_area("Tukasa",temperatura).
 enfermedad_area("Subway",cabeza).
 enfermedad_area("Subway",torso).
 enfermedad_area("Subway",piernas).
-
 
 % �reas de afectaci�n de cada s�ntoma, en principio un sintoma solo
 % puede atacar un �rea espec�fica del cuerpo, sin embargo hay algunos
@@ -115,7 +105,8 @@ sintoma_area(inexistencia, piernas).
 
 % ------------------------------------------------------------------------
 % Palabras para el BNF
-nombre([Mcdonals|A],A).
+
+nombre([mcdonals|A],A).
 nombre([pasta|A],A).
 nombre([cansancio|A],A).
 nombre([pizza|A],A).
@@ -152,7 +143,6 @@ verbo([curar|A],A).
 verbo([tratar|A],A).
 verbo([prevenir|A],A).
 
-
 determinante([el|A],A).
 determinante([como|A],A).
 determinante([que|A],A).
@@ -163,6 +153,7 @@ determinante([lo|A],A).
 determinante([cuando|A],A).
 determinante([con|A],A).
 determinante([la|A],A).
+
 % -----------------------------------------------------------------------------
 % Palabras clave de usuario
 
