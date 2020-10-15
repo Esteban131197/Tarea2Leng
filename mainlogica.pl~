@@ -152,4 +152,4 @@ concatenarLista([C1|Resto],SI,_):- string_concat(C1,", ",S),
 
 curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
-%base de datos
+
