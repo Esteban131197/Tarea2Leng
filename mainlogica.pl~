@@ -30,15 +30,12 @@ conversacion():-read(X),
 
 
 
-% revisar(List):- searchExtra(List). %keywords sin necesidad de revisar
-% sintaxis
+
 revisar(List):- %oracion(List,[]), %keywords que importa la sintaxis
   searchKeywords(List).
 
 revisar(_):- write("Lo siento, no entendi, por favor repitalo.\n").
 
-% revisar(List,Y):- searchExtra(List,Y),!. %keywords sin necesidad de
-% revisar sintaxis
 revisar(List,Y):- searchKeywords(List,Y).
 %keywords que importa la sintaxis
 
@@ -148,11 +145,10 @@ direccion_rest(R,C):-restaurante(R),direccion(C,R).
 % una enfermedad como par�metro de entrada e instancia en la variable L
 % la lista con todas las posibles prevenciones para dicha enfermedad.
 
-prevenir_enfermedad(R,P):-restaurante(R),tratamiento_previo(R,P).
-prevenir_enfermedad(R,P):-restaurante(R),enfermedad_area(R,X).
 
-lista_domicilios(R):-findall(Express,prevenir_enfermedad(R,Express),L),
-    concatenarLista(L).
+
+%lista_domicilios(R):-findall(Express,prevenir_enfermedad(R,Express),L),
+ %   concatenarLista(L).
 
 concatenarLista(L):- concatenarLista(L," ",_).
 concatenarLista([],_,SF):-write(SF).

@@ -145,11 +145,6 @@ direccion_rest(R,C):-restaurante(R),direccion(C,R).
 % una enfermedad como par�metro de entrada e instancia en la variable L
 % la lista con todas las posibles prevenciones para dicha enfermedad.
 
-
-
-lista_domicilios(R):-findall(Express,prevenir_enfermedad(R,Express),L),
-    concatenarLista(L).
-
 concatenarLista(L):- concatenarLista(L," ",_).
 concatenarLista([],_,SF):-write(SF).
 concatenarLista([C1|Resto],SI,_):- string_concat(C1,", ",S),
