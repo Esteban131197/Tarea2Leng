@@ -62,7 +62,7 @@ keyword(Word,_):- direc(Word), %entrega las comidas de su restaurante
     (   R \= 0 -> direccion_rest(R,C), write(C), nl;
         write("No puedo entregar direcciones sin datos previos"), nl).
 
-keyword(Word,_):- trat(Word), %entrega la reservacion de su restaurante
+keyword(Word,_):- reser(Word), %entrega la reservacion de su restaurante
     b_getval(comida,R),
     (   R \= 0 -> crear_reserva(R,T),write("Usted debe "), write(T), nl;
         write("No tengo los datos necesarios para reservar en el restaurante"), nl).
@@ -76,7 +76,7 @@ keyword(Word,_,Salida):- direc(Word), %pregunta por el restaurante
    (   R \= 0 -> direccion_rest(R,C),atom_concat('La direccion del restaurante recomendado es ', C, Salida);
         atom_concat('No puedo entregar direcciones sin datos previos\n','',Salida)).
 
-keyword(Word,_,Salida):- trat(Word), %pregunta por la reservacion del restaurante
+keyword(Word,_,Salida):- reser(Word), %pregunta por la reservacion del restaurante
    b_getval(comida,R),
    (   R \= 0 -> crear_reserva(R,T),atom_concat('"Usted debe ', T, Salida);
         atom_concat('No tengo los datos necesarios para reservar en el restauramte','',Salida)).
@@ -87,7 +87,7 @@ searchKeywords([]).
 searchKeywords([X|Z]):- keyword(X,Z); searchKeywords(Z).
 searchKeywords([X|Z],Salida):- keyword(X,Z,Salida).
 searchKeywords([_|Z],Salida):-searchKeywords(Z,Salida).
-searchKeywords([],Salida):- Salida \= 0 ,nb_getval(enfermedad, Salida).
+searchKeywords([],Salida):- Salida \= 0 ,nb_getval(restaurante, Salida).
 
 % ------------------------------------------------------------------------------
 % BNF
@@ -138,7 +138,7 @@ concatenarLista([C1|Resto],SI,_):- string_concat(C1,", ",S),
 % como parametro el restaurante y devuelve en la variable T, la
 % reservacion respectiva para dicho restaurante.
 
-curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
+crear_reserva(R,T):-restaurante(R),reservacion(T,R).
 
 
 
