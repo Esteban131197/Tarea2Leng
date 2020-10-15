@@ -60,44 +60,44 @@ tratamiento_enfermedad("ninguno","Subway").
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
 
-enfermedad_area("BellaItalia",respiracion).
-enfermedad_area("BellaItalia",cuerpo).
-enfermedad_area("BellaItalia",temperatura).
-enfermedad_area("Rostipollos",estomago).
-enfermedad_area("Rostipollos",temperatura).
-enfermedad_area("McBurguesa",cuerpo).
-enfermedad_area("McBurguesa",peso).
-enfermedad_area("McBurguesa",temperatura).
-enfermedad_area("McBurguesa",condicion_fisica).
-enfermedad_area("Italianisimo",respiracion).
-enfermedad_area("Italianisimo",cuerpo).
-enfermedad_area("Italianisimo",pecho).
-enfermedad_area("Tukasa",piel).
-enfermedad_area("Tukasa",temperatura).
-enfermedad_area("Subway",cabeza).
-enfermedad_area("Subway",torso).
-enfermedad_area("Subway",piernas).
+res_area("BellaItalia",respiracion).
+res_area("BellaItalia",cuerpo).
+res_area("BellaItalia",temperatura).
+res_area("Rostipollos",estomago).
+res_area("Rostipollos",temperatura).
+res_area("McBurguesa",cuerpo).
+res_area("McBurguesa",peso).
+res_area("McBurguesa",temperatura).
+res_area("McBurguesa",condicion_fisica).
+res_area("Italianisimo",respiracion).
+res_area("Italianisimo",cuerpo).
+res_area("Italianisimo",pecho).
+res_area("Tukasa",piel).
+res_area("Tukasa",temperatura).
+res_area("Subway",cabeza).
+res_area("Subway",torso).
+res_area("Subway",piernas).
 
 % �reas de afectaci�n de cada s�ntoma, en principio un sintoma solo
 % puede atacar un �rea espec�fica del cuerpo, sin embargo hay algunos
 % sintomas que atacan varias �reas debido a la ambig�edad de los mismos
 % (son el caso de dolor y perdida).
 
-sintoma_area(pizza,respiracion).
-sintoma_area(pasta,temperatura).
-sintoma_area(cansancio,cuerpo).
-sintoma_area(pollo,estomago).
-sintoma_area(alitas,estomago).
-sintoma_area(cocacola,estomago).
-sintoma_area(cocacola,cuerpo).
-sintoma_area(perdida,peso).
-sintoma_area(perdida,estomago).
-sintoma_area(flema,pecho).
-sintoma_area(picazon,piel).
-sintoma_area(ampollas,piel).
-sintoma_area(muerte, cabeza).
-sintoma_area(polvo, torso).
-sintoma_area(inexistencia, piernas).
+clave_area(pizza,respiracion).
+clave_area(pasta,temperatura).
+clave_area(cansancio,cuerpo).
+clave_area(pollo,estomago).
+clave_area(alitas,estomago).
+clave_area(cocacola,estomago).
+clave_area(cocacola,cuerpo).
+clave_area(perdida,peso).
+clave_area(perdida,estomago).
+clave_area(flema,pecho).
+clave_area(picazon,piel).
+clave_area(ampollas,piel).
+clave_area(muerte, cabeza).
+clave_area(polvo, torso).
+clave_area(inexistencia, piernas).
 
 % ------------------------------------------------------------------------
 % Palabras para el BNF

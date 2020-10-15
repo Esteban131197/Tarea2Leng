@@ -1,11 +1,9 @@
 %Lista de enfermedades, las enfermedades se tratan como strings
 
-restaurante("PizzaHut").%gripe
+restaurante("BellaItalia").%gripe
 restaurante("Rostipollos").%virus est
-restaurante("Mcdonalds").%cancer
-restaurante("TacoBell").%broq
-restaurante("Tukasa").%varic
-restaurante("Subway").%thanos
+restaurante("McBurguesa").%cancer
+restaurante("Italianisimo").%broq
 
 % Lista de sintomas, de momento los sintomas son tratados como atomos de
 % prolog, sin embargo hay algunos que pueden quedar ambig�os como dolor
@@ -32,22 +30,20 @@ clave(inexistencia).
 % causa (la cu�l es propia y �nica para cada enfermedad), el segundo
 % string indica a cu�l enfermedad pertenece dicha causa.
 
-direccion("PizzaHut"," esta ubicada 25 metros este y de 25 norte de la municipalidad de Cartago").
-direccion("Tukasa","diagonal a aros y llantas en el Molino, Cartago").
+direccion("BellaItalia"," el cual esta ubicado a 300 metros sur de la entrada principal de la Universidad de Costa Rica").
 direccion("Rostipollos","de la munipalidad de Cartago 225 metros al este, local esquinero").
-direccion("TacoBell","Se ubica a 25 metros este y 20 norte de la municipalidad de Cartago").
-direccion("Mcdonals","Carretera hacia paraiso, contiguo a Walmart").
-direccion("Subway","300 metros oeste de la entrada principal del TEC").
+direccion("Italianisimo"," se ubica a 50 metros sur de la entrada del Banco de Costa Rica").
+direccion("McBurguesa","se encuentra a 100 metros norte de la entrada principal del TEC").
 
 % Hechos que me indican si una enfermedad tiene tratamiento previo, para
 % incluirlos tambi�n en la lista de prevenciones de cada enfermedad. El
 % primer string es el nombre de la enfermedad y el segundo el
 % tratamiento.
 
-tratamiento_previo("PizzaHut","Vacunarse todos los a�os").
-tratamiento_previo("TacoBell","Ponerse la vacuna para la gripe todos los a�os").
-tratamiento_previo("Tukasa","Vacunarse contra el virus que produce la varicela").
-tratamiento_previo("Subway","matar a thanos").
+tratamiento_previo("BellaItalia","Vacunarse todos los a�os").
+tratamiento_previo("Rostipollos","Ponerse la vacuna para la gripe todos los a�os").
+tratamiento_previo("Italianisimo","Vacunarse contra el virus que produce la varicela").
+tratamiento_previo("McBurguesa","matar a thanos").
 
 % Lista de tratamientos posteriores a la enfermedad, el hecho los asocia
 % directamente con la enfermedad (segundo par�metro) ya que los
@@ -64,23 +60,23 @@ tratamiento_enfermedad("ninguno","Subway").
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
 
-enfermedad_area("PizzaHut",respiracion).
-enfermedad_area("PizzaHut",cuerpo).
-enfermedad_area("PizzaHut",temperatura).
-enfermedad_area("Rostipollos",estomago).
-enfermedad_area("Rostipollos",temperatura).
-enfermedad_area("Mcdonals",cuerpo).
-enfermedad_area("Mcdonals",peso).
-enfermedad_area("Mcdonals",temperatura).
-enfermedad_area("Mcdonals",condicion_fisica).
-enfermedad_area("TacoBell",respiracion).
-enfermedad_area("Tacobell",cuerpo).
-enfermedad_area("Tacobell",pecho).
-enfermedad_area("Tukasa",piel).
-enfermedad_area("Tukasa",temperatura).
-enfermedad_area("Subway",cabeza).
-enfermedad_area("Subway",torso).
-enfermedad_area("Subway",piernas).
+res_area("BellaItalia",respiracion).
+res_area("BellaItalia",cuerpo).
+res_area("BellaItalia",temperatura).
+res_area("Rostipollos",estomago).
+res_area("Rostipollos",temperatura).
+res_area("McBurguesa",cuerpo).
+res_area("McBurguesa",peso).
+res_area("McBurguesa",temperatura).
+res_area("McBurguesa",condicion_fisica).
+res_area("Italianisimo",respiracion).
+res_area("Italianisimo",cuerpo).
+res_area("Italianisimo",pecho).
+res_area("Tukasa",piel).
+res_area("Tukasa",temperatura).
+res_area("Subway",cabeza).
+res_area("Subway",torso).
+res_area("Subway",piernas).
 
 % �reas de afectaci�n de cada s�ntoma, en principio un sintoma solo
 % puede atacar un �rea espec�fica del cuerpo, sin embargo hay algunos
