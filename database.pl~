@@ -43,7 +43,7 @@ direccion("Subway","300 metros oeste de la entrada principal del TEC").
 
 
 
-%Lista de prevenciones
+%Lista de domicilios
 
 domicilio("aplicaciones como uber y glovo").
 domicilio("aplicaciones como uber y glovo").
@@ -197,13 +197,13 @@ determinante([con|A],A).
 determinante([la|A],A).
 % -----------------------------------------------------------------------------
 % Palabras clave de usuario
-saludo(hola).
-saludo(saludos).
-saludo(buenas).
-saludo(buenos).
+%saludo(hola).
+%saludo(saludos).
+%saludo(buenas).
+%saludo(buenos).
 
-despedida(adios).
-despedida(luego).
+%despedida(adios).
+%despedida(luego).
 
 express(prevenirla).
 express(prevenirlo).

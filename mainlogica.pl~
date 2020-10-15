@@ -30,13 +30,15 @@ conversacion():-read(X),
 
 
 
-revisar(List):- searchExtra(List). %keywords sin necesidad de revisar sintaxis
+% revisar(List):- searchExtra(List). %keywords sin necesidad de revisar
+% sintaxis
 revisar(List):- %oracion(List,[]), %keywords que importa la sintaxis
   searchKeywords(List).
 
 revisar(_):- write("Lo siento, no entendi, por favor repitalo.\n").
 
-revisar(List,Y):- searchExtra(List,Y),!. %keywords sin necesidad de revisar sintaxis
+% revisar(List,Y):- searchExtra(List,Y),!. %keywords sin necesidad de
+% revisar sintaxis
 revisar(List,Y):- searchKeywords(List,Y).
 %keywords que importa la sintaxis
 
@@ -76,7 +78,7 @@ keyword(Word,_):- trat(Word), %pregunta por el tratamiento de su enfermedad
 keyword(Word,_):- express(Word), %pregunta como prevenir la enfermedad
     b_getval(comida,R),
     (   R \= 0 -> write("Para pedir esta recomendacion a domicilio puede utilizar  "),nl,
-        lista_prevenciones(R);
+        lista_domicilios(R);
         write("No puedo sugeriri servicios a domicilio sin datos"), nl).
 
 %GUI
@@ -95,16 +97,18 @@ keyword(Word,_,Salida):- trat(Word), %pregunta por el tratamiento de su enfermed
 
 keyword(Word,_, Salida):- express(Word), %pregunta como prevenir la enfermedad
    b_getval(comida,R),
-   (   R \= 0 -> lista_prevenciones(R),atom_concat('Para pedir esta recomendacion a domicilio puede utilizar','',Salida);
+   (   R \= 0 -> lista_domicilios(R),atom_concat('Para pedir esta recomendacion a domicilio puede utilizar','',Salida);
        atom_concat('No puedo sugerir servicios a domicilio sin datos','',Salida)).
 
 keywordExtra(Word):- saludo(Word), write("Hola, en que lo puedo ayudar hoy?"), nl.
 keywordExtra(Word):- despedida(Word), write("Adios, espero que est� bien."), nl,
     break.
 
-keywordExtra(Word,Salida):- saludo(Word), atom_concat('Hola, en que lo puedo ayudar hoy?','',Salida).
-keywordExtra(Word,Salida):- despedida(Word), atom_concat('Adios, espero que est� bien','',Salida),
-    break.
+% keywordExtra(Word,Salida):- saludo(Word), atom_concat('Hola, en que lo
+% puedo ayudar hoy?','',Salida).
+% keywordExtra(Word,Salida):- despedida(Word), atom_concat('Adios, espero
+% que est� bien','',Salida),
+%    break.
 
 %busqueda en la lista de palabras
 searchKeywords([]).
@@ -114,11 +118,12 @@ searchKeywords([X|Z],Salida):- keyword(X,Z,Salida).
 searchKeywords([_|Z],Salida):-searchKeywords(Z,Salida).
 searchKeywords([],Salida):- Salida \= 0 ,nb_getval(enfermedad, Salida).
 
-searchExtra([]):-false.
-searchExtra([X|Z]):- keywordExtra(X); searchExtra(Z).
+%searchExtra([]):-false.
+%searchExtra([X|Z]):- keywordExtra(X); searchExtra(Z).
 
-searchExtra([], _ ):-false.
-searchExtra([X|Z],Salida):- keywordExtra(X,Salida); searchExtra(Z,Salida).
+%searchExtra([], _ ):-false.
+% searchExtra([X|Z],Salida):- keywordExtra(X,Salida);
+% searchExtra(Z,Salida).
 % ------------------------------------------------------------------------------
 % BNF
 oracion(A,B):- sintagma_nominal(A,C),
@@ -169,9 +174,9 @@ direccion_rest(R,C):-restaurante(R),direccion(C,R).
 % la lista con todas las posibles prevenciones para dicha enfermedad.
 
 prevenir_enfermedad(R,P):-restaurante(R),tratamiento_previo(R,P).
-prevenir_enfermedad(R,P):-restaurante(R),prevencion(P),enfermedad_area(R,X),prevencion_area(P,X).
+prevenir_enfermedad(R,P):-restaurante(R),domicilio(P),enfermedad_area(R,X),prevencion_area(P,X).
 
-lista_prevenciones(R):-findall(Prevencion,prevenir_enfermedad(R,Prevencion),L),
+lista_domicilios(R):-findall(Express,prevenir_enfermedad(R,Express),L),
     concatenarLista(L).
 
 concatenarLista(L):- concatenarLista(L," ",_).
@@ -197,8 +202,11 @@ curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
 
 
+<<<<<<< Updated upstream
+=======
 
 
 
 
 
+>>>>>>> Stashed changes

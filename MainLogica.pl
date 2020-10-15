@@ -75,12 +75,6 @@ keyword(Word,_):- trat(Word), %pregunta por el tratamiento de su enfermedad
     (   R \= 0 -> curar_enfermedad(R,T),write("Usted debe "), write(T), nl;
         write("Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
 
-keyword(Word,_):- express(Word), %pregunta como prevenir la enfermedad
-    b_getval(comida,R),
-    (   R \= 0 -> write("Para pedir esta recomendacion a domicilio puede utilizar  "),nl,
-        lista_domicilios(R);
-        write("No puedo sugeriri servicios a domicilio sin datos"), nl).
-
 %GUI
 keyword(Word,Resto,_):- clave(Word),%el paciente est� dando mencionando un sintoma
 asignarVar(Word), suficientesClaves(_),searchKeywords(Resto).
@@ -95,20 +89,9 @@ keyword(Word,_,Salida):- trat(Word), %pregunta por el tratamiento de su enfermed
    (   R \= 0 -> curar_enfermedad(R,T),atom_concat('"Usted debe ', T, Salida);
         atom_concat('Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
 
-keyword(Word,_, Salida):- express(Word), %pregunta como prevenir la enfermedad
-   b_getval(comida,R),
-   (   R \= 0 -> lista_domicilios(R),atom_concat('Para pedir esta recomendacion a domicilio puede utilizar','',Salida);
-       atom_concat('No puedo sugerir servicios a domicilio sin datos','',Salida)).
-
 keywordExtra(Word):- saludo(Word), write("Hola, en que lo puedo ayudar hoy?"), nl.
 keywordExtra(Word):- despedida(Word), write("Adios, espero que est� bien."), nl,
     break.
-
-% keywordExtra(Word,Salida):- saludo(Word), atom_concat('Hola, en que lo
-% puedo ayudar hoy?','',Salida).
-% keywordExtra(Word,Salida):- despedida(Word), atom_concat('Adios, espero
-% que est� bien','',Salida),
-%    break.
 
 %busqueda en la lista de palabras
 searchKeywords([]).
@@ -201,12 +184,3 @@ curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
 
 
-
-<<<<<<< Updated upstream
-=======
-
-
-
-
-
->>>>>>> Stashed changes
