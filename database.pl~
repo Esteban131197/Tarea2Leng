@@ -43,34 +43,6 @@ direccion("Subway","300 metros oeste de la entrada principal del TEC").
 
 
 
-%Lista de domicilios
-
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-domicilio("aplicaciones como uber y glovo").
-
-
-% Hechos que me asocian una prevenci�n, con el �rea del cuerpo a la
-% cu�l va dirigida la prevenci�n
-
-prevencion_area("Lavarse las manos",estomago).
-prevencion_area("Lavarse las manos",respiracion).
-prevencion_area("Cubrise la boca al toser",respiracion).
-prevencion_area("Usar desinfectante para manos",estomago).
-prevencion_area("Desinfectar superficies y objetos del hogar",estomago).
-prevencion_area("Hacer ejercicio con frecuencia",condicion_fisica).
-prevencion_area("Tener buena alimentaci�n",peso).
-prevencion_area("Evitar los vicios como alcohol o cigarros",condicion_fisica).
-prevencion_area("ninguna",muerte).
-prevencion_area("matar a thanos",polvo).
-prevencion_area("no existir",inexistencia).
 
 % Hechos que me indican si una enfermedad tiene tratamiento previo, para
 % incluirlos tambi�n en la lista de prevenciones de cada enfermedad. El
@@ -143,11 +115,7 @@ sintoma_area(inexistencia, piernas).
 
 % ------------------------------------------------------------------------
 % Palabras para el BNF
-nombre([hombre|A],A).
-nombre([cancer|A],A).
-nombre([yo|A],A).
-nombre([doctor|A],A).
-nombre([drlog|A],A).%%%OJO CON ESTA LINEA
+nombre([Mcdonals|A],A).
 nombre([pasta|A],A).
 nombre([cansancio|A],A).
 nombre([pizza|A],A).
@@ -197,19 +165,6 @@ determinante([con|A],A).
 determinante([la|A],A).
 % -----------------------------------------------------------------------------
 % Palabras clave de usuario
-%saludo(hola).
-%saludo(saludos).
-%saludo(buenas).
-%saludo(buenos).
-
-%despedida(adios).
-%despedida(luego).
-
-express(prevenirla).
-express(prevenirlo).
-express(prevenir).
-express(prevencion).
-express(domicilio).
 
 trat(tratamiento).
 trat(tratarlo).
