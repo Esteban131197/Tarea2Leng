@@ -40,10 +40,10 @@ direccion("McBurguesa","se encuentra a 100 metros norte de la entrada principal 
 % primer string es el nombre de la enfermedad y el segundo el
 % tratamiento.
 
-reservacion("BellaItalia","Vacunarse todos los a�os").
-reservacion("Rostipollos","Ponerse la vacuna para la gripe todos los a�os").
-reservacion("Italianisimo","Vacunarse contra el virus que produce la varicela").
-reservacion("McBurguesa","matar a thanos").
+reservacion("BellaItalia","Su espacio es hoy a las 8:00pm").
+reservacion("Rostipollos","Lamentablemente no hay espacios disponibles").
+reservacion("Italianisimo","Las reservaciones solo se permiten con dos dias de anticipacion").
+reservacion("McBurguesa","No necesita reservacion para ingresar al local").
 
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
@@ -116,25 +116,10 @@ nombre([cura|A],A).
 
 nombre([pizza|A],A).
 nombre([pasta|A],A).
-nombre([cansancio|A],A).
 nombre([reserva|A],A).
 
-verbo([tiene|A],A).
-verbo([tengo|A],A).
-verbo([duele|A],A).
 verbo([crear|A],A).
-verbo([tratar|A],A).
-
-determinante([el|A],A).
-determinante([como|A],A).
-determinante([que|A],A).
-determinante([cual|A],A).
-determinante([en|A],A).
-determinante([esa|A],A).
-determinante([lo|A],A).
-determinante([cuando|A],A).
-determinante([con|A],A).
-determinante([la|A],A).
+verbo([reservar|A],A).
 
 % -----------------------------------------------------------------------------
 % Palabras clave de usuario
@@ -142,8 +127,6 @@ determinante([la|A],A).
 reser(reservacion).
 
 direc(direccion).
-direc(provoca).
-
 
 
 

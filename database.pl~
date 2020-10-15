@@ -40,10 +40,10 @@ direccion("McBurguesa","se encuentra a 100 metros norte de la entrada principal 
 % primer string es el nombre de la enfermedad y el segundo el
 % tratamiento.
 
-tratamiento("BellaItalia","Vacunarse todos los a�os").
-tratamiento("Rostipollos","Ponerse la vacuna para la gripe todos los a�os").
-tratamiento("Italianisimo","Vacunarse contra el virus que produce la varicela").
-tratamiento("McBurguesa","matar a thanos").
+reservacion("BellaItalia","Vacunarse todos los a�os").
+reservacion("Rostipollos","Ponerse la vacuna para la gripe todos los a�os").
+reservacion("Italianisimo","Vacunarse contra el virus que produce la varicela").
+reservacion("McBurguesa","matar a thanos").
 
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
