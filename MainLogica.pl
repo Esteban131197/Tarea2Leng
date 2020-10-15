@@ -1,7 +1,7 @@
 :-consult('DataBase').
 
 restauranTEC():- %se inicializan las variables de sintomas y enfermedad del paciente en 0.
-    write("Hola.\n"),
+    write("Hola, indique tres alimentos que le gustaria comer .\n"),
     b_setval(clave1,0),
     b_setval(clave2,0),
     b_setval(clave3,0),
