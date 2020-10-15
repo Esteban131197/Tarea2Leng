@@ -1,40 +1,33 @@
-%Lista de enfermedades, las enfermedades se tratan como strings
+%Lista de restaurantes, los restaurantes se tratan como strings
 
-restaurante("BellaItalia").%gripe
-restaurante("Rostipollos").%virus est
+restaurante("BellaItalia").
+restaurante("Rostipollos").
 restaurante("McBurguesa").
 restaurante("Italianisimo").
 
-% Lista de sintomas, de momento los sintomas son tratados como atomos de
-% prolog, sin embargo hay algunos que pueden quedar ambig�os como dolor
-% (puede ser dolor de cuerpo, dolor de est�mago,etc), igual sucede con
-% p�rdida (p�rdida de apetito, p�rdida de peso).Se puede cambiar a
-% string para solucionar la ambig�edad pero se debe recibir el string
-% completo de la comunicaci�n con el usuario
+% Lista de comidas, de momento las comidas son tratadas como atomos de
+% prolog
 
-clave(pizza).%tos
-clave(pasta).%fiebre
-clave(pollo).%diarrea
-clave(alitas).%vomito
-clave(cocacola).%dolor
-clave(papas).%perdida
+clave(pizza).
+clave(pasta).
+clave(pollo).
+clave(alitas).
+clave(cocacola).
+clave(papas).
 clave(hamburguesa).
 clave(tefrio).
 
 
-% Lista de Causas para cada enfermedad, El primer string del hecho es la
-% causa (la cu�l es propia y �nica para cada enfermedad), el segundo
-% string indica a cu�l enfermedad pertenece dicha causa.
+% Lista de direcciones para cada restaurante, El primer string es el
+% restaurante, el segundo string indica a cual restaurante pertenece
+% dicha direccion.
 
 direccion("BellaItalia"," el cual esta ubicado a 300 metros sur de la entrada principal de la Universidad de Costa Rica").
 direccion("Rostipollos","de la munipalidad de Cartago 225 metros al este, local esquinero").
 direccion("Italianisimo"," se ubica a 50 metros sur de la entrada del Banco de Costa Rica").
 direccion("McBurguesa","se encuentra a 100 metros norte de la entrada principal del TEC").
 
-% Hechos que me indican si una enfermedad tiene tratamiento previo, para
-% incluirlos tambi�n en la lista de prevenciones de cada enfermedad. El
-% primer string es el nombre de la enfermedad y el segundo el
-% tratamiento.
+% Hechos que me indican la reservacion del restaurante.
 
 reservacion("BellaItalia","Su espacio es hoy a las 8:00pm").
 reservacion("Rostipollos","Lamentablemente no hay espacios disponibles").
@@ -59,10 +52,7 @@ res_area("Italianisimo",italiano2).
 res_area("Italianisimo",bebida2).
 res_area("Italianisimo",bebida).
 
-% �reas de afectaci�n de cada s�ntoma, en principio un sintoma solo
-% puede atacar un �rea espec�fica del cuerpo, sin embargo hay algunos
-% sintomas que atacan varias �reas debido a la ambig�edad de los mismos
-% (son el caso de dolor y perdida).
+% clasificacion de cada alimento.
 
 clave_area(pizza,italiano).
 clave_area(pasta,italiano2).
@@ -104,7 +94,7 @@ direc(direccion).
 
 
 
-
+%fin
 
 
 
