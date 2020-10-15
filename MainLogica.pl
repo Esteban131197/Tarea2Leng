@@ -65,7 +65,7 @@ keyword(Word,Resto):- clave(Word),%el paciente est� dando mencionando un sinto
 
 keyword(Word,_):- direc(Word), %pregunta por las causas de su enfermedad
     b_getval(comida,R),
-    (   R \= 0 -> causa_enfermedad(R,C), write(C), nl;
+    (   R \= 0 -> direccion_rest(R,C), write(C), nl;
         write("No puedo entregar direcciones sin datos previos"), nl).
 
 keyword(Word,_):- trat(Word), %pregunta por el tratamiento de su enfermedad
@@ -85,7 +85,7 @@ asignarVar(Word), suficientesClaves(_),searchKeywords(Resto).
 
 keyword(Word,_,Salida):- direc(Word), %pregunta por las causas de su enfermedad
    b_getval(comida,R),
-   (   R \= 0 -> causa_enfermedad(R,C),atom_concat('La causa comun de esa enfermedad es ', C, Salida);
+   (   R \= 0 -> direccion_rest(R,C),atom_concat('La causa comun de esa enfermedad es ', C, Salida);
         atom_concat('Como quiere que le de la causa de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?\n','',Salida)).
 
 keyword(Word,_,Salida):- trat(Word), %pregunta por el tratamiento de su enfermedad
@@ -144,21 +144,21 @@ sintagma_verbal(A,B):- verbo(A,B).
 % que el rea de afectacin del sintoma concuerde con una de las �reas
 % de afectacin de la enfermedad
 
-sintoma_de(S,R):-clave(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y).
+clave_de(S,R):-clave(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y).
 
 
 % Regla que me relaciona tres sintomas con una enfermedad, los tres
 % sintomas son ingresados de la comunicaci�n con el usuario y en la
 % variable E se almacena la enfermedad correspondiente
 
-claves_de(C1,C2,C3,R):-sintoma_de(C1,R),sintoma_de(C2,R),sintoma_de(C3,R).
+claves_de(C1,C2,C3,R):-clave_de(C1,R),clave_de(C2,R),clave_de(C3,R).
 
 
 % Regla para relacionar una enfermedad con una causa, la enfermedad se
 % recibe como par�metro y la regla instancia en la variable C la causa
 % correspondiente
 
-causa_enfermedad(R,C):-restaurante(R),direccion(C,R).
+direccion_rest(R,C):-restaurante(R),direccion(C,R).
 
 % Reglas para obtener las formas de prevenci�n de una enfermedad, la
 % regla de prevenir_enfermedad liga una enfermedad con una forma de
