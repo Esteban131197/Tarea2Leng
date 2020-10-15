@@ -114,7 +114,7 @@ sintagma_verbal(A,B):- verbo(A,B).
 % y restaurantes de la base de datos, y luego hace la relacion
 % verificando que la comida concuerde con un restaurante.
 
-clave_de(S,R):-clave(S),restaurante(R),sintoma_area(S,Y),res_area(R,Y).
+clave_de(S,R):-clave(S),restaurante(R),clave_area(S,Y),res_area(R,Y).
 
 % Regla que me relaciona tres comidas con un restaurante, las tres
 % comidas son ingresados por el usuario y en la

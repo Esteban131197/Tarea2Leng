@@ -24,7 +24,7 @@ conversacion():-read(X),
     revisar(List),
     conversacion(). %recursividad para hacer un ciclo de conversacion
 
-revisar(List):- %oracion(List,[]), %keywords que importa la sintaxis
+revisar(List):- %(List,[]), %keywords que importa la sintaxis
   searchKeywords(List).
 
 revisar(_):- write("Lo siento, no entendi, por favor repitalo.\n").
@@ -57,15 +57,15 @@ suficientesClaves(_).
 keyword(Word,Resto):- clave(Word),%el cliente esta mencionando una comida
      asignarVar(Word), suficientesClaves(),searchKeywords(Resto).
 
-keyword(Word,_):- direc(Word), %pregunta por las comidas de su restaurante
+keyword(Word,_):- direc(Word), %entrega las comidas de su restaurante
     b_getval(comida,R),
     (   R \= 0 -> direccion_rest(R,C), write(C), nl;
         write("No puedo entregar direcciones sin datos previos"), nl).
 
-keyword(Word,_):- trat(Word), %pregunta por la reservacion de su restaurante
+keyword(Word,_):- trat(Word), %entrega la reservacion de su restaurante
     b_getval(comida,R),
     (   R \= 0 -> curar_enfermedad(R,T),write("Usted debe "), write(T), nl;
-        write("Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?"), nl).
+        write("No tengo los datos necesarios para reservar en el restaurante"), nl).
 
 %GUI
 keyword(Word,Resto,_):- clave(Word),%el cliente esta mencionando una comida
@@ -79,7 +79,7 @@ keyword(Word,_,Salida):- direc(Word), %pregunta por el restaurante
 keyword(Word,_,Salida):- trat(Word), %pregunta por la reservacion del restaurante
    b_getval(comida,R),
    (   R \= 0 -> curar_enfermedad(R,T),atom_concat('"Usted debe ', T, Salida);
-        atom_concat('Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
+        atom_concat('No tengo los datos necesarios para reservar en el restauramte','',Salida)).
 
 %busqueda en la lista de palabras
 
