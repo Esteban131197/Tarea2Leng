@@ -30,15 +30,12 @@ conversacion():-read(X),
 
 
 
-% revisar(List):- searchExtra(List). %keywords sin necesidad de revisar
-% sintaxis
+
 revisar(List):- %oracion(List,[]), %keywords que importa la sintaxis
   searchKeywords(List).
 
 revisar(_):- write("Lo siento, no entendi, por favor repitalo.\n").
 
-% revisar(List,Y):- searchExtra(List,Y),!. %keywords sin necesidad de
-% revisar sintaxis
 revisar(List,Y):- searchKeywords(List,Y).
 %keywords que importa la sintaxis
 
@@ -89,9 +86,6 @@ keyword(Word,_,Salida):- trat(Word), %pregunta por el tratamiento de su enfermed
    (   R \= 0 -> curar_enfermedad(R,T),atom_concat('"Usted debe ', T, Salida);
         atom_concat('Como quiere que le diga como curar de su enfermedad si aun no me ha dicho los sintomas necesarios para darle un diagnostico?','',Salida)).
 
-keywordExtra(Word):- saludo(Word), write("Hola, en que lo puedo ayudar hoy?"), nl.
-keywordExtra(Word):- despedida(Word), write("Adios, espero que est� bien."), nl,
-    break.
 
 %busqueda en la lista de palabras
 searchKeywords([]).
@@ -101,12 +95,7 @@ searchKeywords([X|Z],Salida):- keyword(X,Z,Salida).
 searchKeywords([_|Z],Salida):-searchKeywords(Z,Salida).
 searchKeywords([],Salida):- Salida \= 0 ,nb_getval(enfermedad, Salida).
 
-%searchExtra([]):-false.
-%searchExtra([X|Z]):- keywordExtra(X); searchExtra(Z).
 
-%searchExtra([], _ ):-false.
-% searchExtra([X|Z],Salida):- keywordExtra(X,Salida);
-% searchExtra(Z,Salida).
 % ------------------------------------------------------------------------------
 % BNF
 oracion(A,B):- sintagma_nominal(A,C),
@@ -156,8 +145,7 @@ direccion_rest(R,C):-restaurante(R),direccion(C,R).
 % una enfermedad como par�metro de entrada e instancia en la variable L
 % la lista con todas las posibles prevenciones para dicha enfermedad.
 
-prevenir_enfermedad(R,P):-restaurante(R),tratamiento_previo(R,P).
-prevenir_enfermedad(R,P):-restaurante(R),domicilio(P),enfermedad_area(R,X),prevencion_area(P,X).
+
 
 lista_domicilios(R):-findall(Express,prevenir_enfermedad(R,Express),L),
     concatenarLista(L).
