@@ -48,71 +48,48 @@ reservacion("McBurguesa","No necesita reservacion para ingresar al local").
 % Hechos que me indican las �reas de afectaci�n de cada enfermedad, una
 % misma enfermedad puede atacar diferentes �reas del cuerpo
 
-res_area("BellaItalia",respiracion).
-res_area("BellaItalia",cuerpo).
-res_area("BellaItalia",temperatura).
-res_area("Rostipollos",estomago).
-res_area("Rostipollos",temperatura).
-res_area("McBurguesa",cuerpo).
-res_area("McBurguesa",peso).
-res_area("McBurguesa",temperatura).
-res_area("McBurguesa",condicion_fisica).
-res_area("Italianisimo",respiracion).
-res_area("Italianisimo",cuerpo).
-res_area("Italianisimo",pecho).
-res_area("Tukasa",piel).
-res_area("Tukasa",temperatura).
-res_area("Subway",cabeza).
-res_area("Subway",torso).
-res_area("Subway",piernas).
+res_area("BellaItalia",italiano).
+res_area("BellaItalia",italiano2).
+res_area("BellaItalia",bebida).
+res_area("BellaItalia",bebida2).
+res_area("Rostipollos",bebida).
+res_area("Rostipollos",fritura1).
+res_area("Rostipollos",fritura2).
+res_area("McBurguesa",bebida2).
+res_area("McBurguesa",hambur).
+%res_area("McBurguesa",bebida).
+res_area("McBurguesa",fritura3).
+res_area("Italianisimo",italiano2).
+res_area("Italianisimo",bebida2).
+res_area("Italianisimo",bebida).
 
 % �reas de afectaci�n de cada s�ntoma, en principio un sintoma solo
 % puede atacar un �rea espec�fica del cuerpo, sin embargo hay algunos
 % sintomas que atacan varias �reas debido a la ambig�edad de los mismos
 % (son el caso de dolor y perdida).
 
-clave_area(pizza,respiracion).
-clave_area(pasta,temperatura).
-clave_area(cansancio,cuerpo).
-clave_area(pollo,estomago).
-clave_area(alitas,estomago).
-clave_area(cocacola,estomago).
-clave_area(cocacola,cuerpo).
-clave_area(perdida,peso).
-clave_area(perdida,estomago).
-clave_area(flema,pecho).
-clave_area(picazon,piel).
-clave_area(ampollas,piel).
-clave_area(muerte, cabeza).
-clave_area(polvo, torso).
-clave_area(inexistencia, piernas).
+clave_area(pizza,italiano).
+clave_area(pasta,italiano2).
+clave_area(hamburguesa,hambur).
+clave_area(pollo,fritura1).
+clave_area(alitas,fritura2).
+clave_area(cocacola,bebida).
+clave_area(tefrio,bebida2).
+clave_area(papas,fritura3).
 
 % ------------------------------------------------------------------------
 % Palabras para el BNF
 
-nombre([mcdonals|A],A).
+nombre([mcburguesa|A],A).
 nombre([pasta|A],A).
-nombre([cansancio|A],A).
+nombre([hamburguesa|A],A).
 nombre([pizza|A],A).
 nombre([pollo|A],A).
 nombre([cocacola|A],A).
 nombre([alitas|A],A).
-nombre([flema|A],A).
-nombre([perdida|A],A).
-nombre([ampollas|A],A).
-nombre([garganta|A],A).
-nombre([cabeza|A],A).
-nombre([espalda|A],A).
-nombre([estomago|A],A).
-nombre([virus|A],A).
-nombre([manos|A],A).
-nombre([ojos|A],A).
-nombre([nariz|A],A).
-nombre([bronquitis|A],A).
-nombre([varicela|A],A).
-nombre([enfermedad|A],A).
-nombre([tratamiento|A],A).
-nombre([cura|A],A).
+nombre([papas|A],A).
+nombre([tefrio|A],A).
+
 
 nombre([pizza|A],A).
 nombre([pasta|A],A).
