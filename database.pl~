@@ -34,12 +34,12 @@ clave(inexistencia).
 % string indica a cu�l enfermedad pertenece dicha causa.
 
 
-direccion("La gripe es causada por el virus de la influenza","PizzaHut").
-direccion("El virus que causa la varicela es el virus varicela z�ster","Tukasa").
-direccion("El virus estomacal es causado por el norovirus y el rotavirus ","Rostipollos").
-direccion("Los mismos virus que causan los resfriados y la gripe son la causa m�s frecuente de la bronquitis","TacoBell").
-direccion("Por lo general el cancer lo provocan mutaciones geneticas","Mcdonals").
-direccion("gemas","Subway").
+direccion("PizzaHut"," esta ubicada 25 metros este y de 25 norte de la municipalidad de Cartago").
+direccion("Tukasa","diagonal a aros y llantas en el Molino, Cartago").
+direccion("Rostipollos","de la munipalidad de Cartago 225 metros al este, local esquinero").
+direccion("TacoBell","Se ubica a 25 metros este y 20 norte de la municipalidad de Cartago").
+direccion("Mcdonals","Carretera hacia paraiso, contiguo a Walmart").
+direccion("Subway","300 metros oeste de la entrada principal del TEC").
 
 
 
@@ -221,6 +221,7 @@ trat(medicina).
 
 direc(direccion).
 direc(provoca).
+
 
 
 

@@ -144,7 +144,7 @@ sintagma_verbal(A,B):- verbo(A,B).
 % que el rea de afectacin del sintoma concuerde con una de las �reas
 % de afectacin de la enfermedad
 
-sintoma_de(S,R):-clave(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y).
+clave_de(S,R):-clave(S),restaurante(R),sintoma_area(S,Y),enfermedad_area(R,Y).
 
 
 % Regla que me relaciona tres sintomas con una enfermedad, los tres

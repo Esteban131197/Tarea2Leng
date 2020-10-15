@@ -197,13 +197,13 @@ determinante([con|A],A).
 determinante([la|A],A).
 % -----------------------------------------------------------------------------
 % Palabras clave de usuario
-saludo(hola).
-saludo(saludos).
-saludo(buenas).
-saludo(buenos).
+%saludo(hola).
+%saludo(saludos).
+%saludo(buenas).
+%saludo(buenos).
 
-despedida(adios).
-despedida(luego).
+%despedida(adios).
+%despedida(luego).
 
 prev(prevenirla).
 prev(prevenirlo).

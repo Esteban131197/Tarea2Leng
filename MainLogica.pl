@@ -30,13 +30,15 @@ conversacion():-read(X),
 
 
 
-revisar(List):- searchExtra(List). %keywords sin necesidad de revisar sintaxis
+% revisar(List):- searchExtra(List). %keywords sin necesidad de revisar
+% sintaxis
 revisar(List):- %oracion(List,[]), %keywords que importa la sintaxis
   searchKeywords(List).
 
 revisar(_):- write("Lo siento, no entendi, por favor repitalo.\n").
 
-revisar(List,Y):- searchExtra(List,Y),!. %keywords sin necesidad de revisar sintaxis
+% revisar(List,Y):- searchExtra(List,Y),!. %keywords sin necesidad de
+% revisar sintaxis
 revisar(List,Y):- searchKeywords(List,Y).
 %keywords que importa la sintaxis
 
@@ -101,9 +103,11 @@ keywordExtra(Word):- saludo(Word), write("Hola, en que lo puedo ayudar hoy?"), n
 keywordExtra(Word):- despedida(Word), write("Adios, espero que est� bien."), nl,
     break.
 
-keywordExtra(Word,Salida):- saludo(Word), atom_concat('Hola, en que lo puedo ayudar hoy?','',Salida).
-keywordExtra(Word,Salida):- despedida(Word), atom_concat('Adios, espero que est� bien','',Salida),
-    break.
+% keywordExtra(Word,Salida):- saludo(Word), atom_concat('Hola, en que lo
+% puedo ayudar hoy?','',Salida).
+% keywordExtra(Word,Salida):- despedida(Word), atom_concat('Adios, espero
+% que est� bien','',Salida),
+%    break.
 
 %busqueda en la lista de palabras
 searchKeywords([]).
@@ -113,11 +117,12 @@ searchKeywords([X|Z],Salida):- keyword(X,Z,Salida).
 searchKeywords([_|Z],Salida):-searchKeywords(Z,Salida).
 searchKeywords([],Salida):- Salida \= 0 ,nb_getval(enfermedad, Salida).
 
-searchExtra([]):-false.
-searchExtra([X|Z]):- keywordExtra(X); searchExtra(Z).
+%searchExtra([]):-false.
+%searchExtra([X|Z]):- keywordExtra(X); searchExtra(Z).
 
-searchExtra([], _ ):-false.
-searchExtra([X|Z],Salida):- keywordExtra(X,Salida); searchExtra(Z,Salida).
+%searchExtra([], _ ):-false.
+% searchExtra([X|Z],Salida):- keywordExtra(X,Salida);
+% searchExtra(Z,Salida).
 % ------------------------------------------------------------------------------
 % BNF
 oracion(A,B):- sintagma_nominal(A,C),
@@ -187,6 +192,8 @@ concatenarLista([C1|Resto],SI,_):- string_concat(C1,", ",S),
 curar_enfermedad(R,T):-restaurante(R),tratamiento_enfermedad(T,R).
 
 %base de datos
+
+
 
 
 
