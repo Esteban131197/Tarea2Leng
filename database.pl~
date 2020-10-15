@@ -62,7 +62,6 @@ res_area("McBurguesa",fritura3).
 res_area("Italianisimo",italiano2).
 res_area("Italianisimo",bebida2).
 res_area("Italianisimo",bebida).
-res_area("Italianisimo",italiano2).
 
 % �reas de afectaci�n de cada s�ntoma, en principio un sintoma solo
 % puede atacar un �rea espec�fica del cuerpo, sin embargo hay algunos

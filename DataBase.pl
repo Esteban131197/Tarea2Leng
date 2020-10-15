@@ -2,8 +2,8 @@
 
 restaurante("BellaItalia").%gripe
 restaurante("Rostipollos").%virus est
-restaurante("McBurguesa").%cancer
-restaurante("Italianisimo").%broq
+restaurante("McBurguesa").
+restaurante("Italianisimo").
 
 % Lista de sintomas, de momento los sintomas son tratados como atomos de
 % prolog, sin embargo hay algunos que pueden quedar ambig�os como dolor
@@ -14,17 +14,13 @@ restaurante("Italianisimo").%broq
 
 clave(pizza).%tos
 clave(pasta).%fiebre
-clave(cansancio).%
 clave(pollo).%diarrea
 clave(alitas).%vomito
 clave(cocacola).%dolor
-clave(perdida).%perdida
-clave(flema).
-clave(picazon).
-clave(ampollas).
-clave(muerte).
-clave(polvo).
-clave(inexistencia).
+clave(papas).%perdida
+clave(hamburguesa).
+clave(tefrio).
+
 
 % Lista de Causas para cada enfermedad, El primer string del hecho es la
 % causa (la cu�l es propia y �nica para cada enfermedad), el segundo
